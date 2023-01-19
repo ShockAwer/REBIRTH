@@ -1,13 +1,13 @@
-#! /usr/local/bin/perl
+#! /usr/bin/perl
 
 
-#‚Í‚¶‚ ‚â—‚Ó‚Ÿ‚İ[‚é‚Ìƒpƒ\ƒ’ƒ^‚³‚ñA–{“–‚É‚ ‚è‚ª‚Æ‚¤
+#ã¯ã˜ã‚ã‚„ï¼ ãµãã¿ãƒ¼ã‚‹ã®ãƒ‘ã‚½ãƒ²ã‚¿ã•ã‚“ã€æœ¬å½“ã«ã‚ã‚ŠãŒã¨ã†
 
 
 #--------------------
 
 $body = '<body bgcolor="#004040" text="#ffffff" link="#eeffee" vlink="#dddddd" alink="#ff0000">';
-$bbstitle ="‚ ‚â‚µ‚¢‚í[‚é‚Ç—‚Í‚é‚È";
+$bbstitle ="ã‚ã‚„ã—ã„ã‚ãƒ¼ã‚‹ã©ï¼ ã¯ã‚‹ãª";
 
 
 $logdir = './log/';
@@ -17,13 +17,13 @@ $action ='getlog';
 
 $bbsurl = './bbs.cgi';
 
-# “ú–{ŒêƒR[ƒh•ÏŠ·ƒ‰ƒCƒuƒ‰ƒŠjocde.pl‚ÌƒpƒX
+# æ—¥æœ¬èªã‚³ãƒ¼ãƒ‰å¤‰æ›ãƒ©ã‚¤ãƒ–ãƒ©ãƒªjocde.plã®ãƒ‘ã‚¹
 require './jcode.pl';
 
-# ƒL[ƒ[ƒh‚ÌÅ‘å•¶š”i”¼Špj
+# ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã®æœ€å¤§æ–‡å­—æ•°ï¼ˆåŠè§’ï¼‰
 $keylength = 64;
 
-# · ƒT[ƒo‚ÌŒv‚ª‚¸‚ê‚Ä‚é‚â“ú–{ŠÔˆÈŠO‚É‚µ‚½‚¢‚Ég‚¤
+# æ™‚å·® ã‚µãƒ¼ãƒã®æ™‚è¨ˆãŒãšã‚Œã¦ã‚‹æ™‚ã‚„æ—¥æœ¬æ™‚é–“ä»¥å¤–ã«ã—ãŸã„æ™‚ã«ä½¿ã†
 $tim = 0;
 
 $\ = "\n";
@@ -45,7 +45,7 @@ foreach (@argv) {
 	$value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
 	&jcode'convert(*value,'sjis');
 
-	# ˆ—‚Ì“s‡ã‚Ìˆ—
+	# å‡¦ç†ã®éƒ½åˆä¸Šã®å‡¦ç†
 	$value =~ s/\\/\\\\/;
 	$value =~ s/\[/\\[/;
 
@@ -71,14 +71,14 @@ sub list {
                $end--; 
 
 	print "Content-type: text/html\n\n";
-	print "<html><head><title>$bbstitle ‰ß‹ƒƒO</title></head>\n";
+	print "<html><head><title>$bbstitle éå»ãƒ­ã‚°</title></head>\n";
 	print "$body\n";
-	print "<center><font size=+1><b>$bbstitle ‰ß‹ƒƒO</b></font><hr>\n";
+	print "<center><font size=+1><b>$bbstitle éå»ãƒ­ã‚°</b></font><hr>\n";
 
 	print "<form method=get action=\"$cgiurl\">";
 	print "<input type=hidden name=\"action\" value=\"$action\">";
 	print "<table>";
-#print "<tr><td></td><td>ƒtƒ@ƒCƒ‹–¼</td><td align=right>ƒTƒCƒY</td><td align=center>“ú•t</td></tr>";
+#print "<tr><td></td><td>ãƒ•ã‚¡ã‚¤ãƒ«å</td><td align=right>ã‚µã‚¤ã‚º</td><td align=center>æ—¥ä»˜</td></tr>";
 	foreach (0 .. $end) {
 		if (!($files[$_] eq "." or $files[$_] eq "..")) {
 			($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,$blksize,$blocks) = stat "$logdir$files[$_]";
@@ -95,9 +95,9 @@ sub list {
 		}
 	}
 
-	print "<tr><td></td></tr><tr><td colspan=4>¦ƒ‰ƒWƒIƒ{ƒ^ƒ“‚Åƒtƒ@ƒCƒ‹–¼‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B</td></tr><tr><td></td></tr>\n";
+	print "<tr><td></td></tr><tr><td colspan=4>â€»ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã§ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚</td></tr><tr><td></td></tr>\n";
 	print "<tr><td colspan=4><select name=\"first\">";
-	print "<option value=\"0\">Å‰";
+	print "<option value=\"0\">æœ€åˆ";
 	print "<option value=\"1\">1";
 	print "<option value=\"2\">2";
 	print "<option value=\"3\">3";
@@ -121,9 +121,9 @@ sub list {
 	print "<option value=\"21\">21";
 	print "<option value=\"22\">22";
 	print "<option value=\"23\">23";
-	print "</select>‚©‚ç";
+	print "</select>ã‹ã‚‰";
 	print "<select name=\"last\">";
-	print "<option value=\"24\">ÅŒã";
+	print "<option value=\"24\">æœ€å¾Œ";
 	print "<option value=\"1\">1";
 	print "<option value=\"2\">2";
 	print "<option value=\"3\">3";
@@ -147,17 +147,17 @@ sub list {
 	print "<option value=\"21\">21";
 	print "<option value=\"22\">22";
 	print "<option value=\"23\">23";
-	print "</select>‚Ü‚Å@<input type=submit value=\"Get\"><p>";
+	print "</select>ã¾ã§ã€€<input type=submit value=\"Get\"><p>";
 	print "<select name=\"searchmode\">";
-	print "<option value=\"name\">“ŠeÒ";
-	print "<option value=\"keyword\">“à—e";
-	print "<option value=\"subject\">‘è–¼\n</select>";
-	print "F<input type=text name=\"keyword\" size=\"12\" maxlength=$keylength>";
+	print "<option value=\"name\">æŠ•ç¨¿è€…";
+	print "<option value=\"keyword\">å†…å®¹";
+	print "<option value=\"subject\">é¡Œå\n</select>";
+	print "ï¼š<input type=text name=\"keyword\" size=\"12\" maxlength=$keylength>";
 	print "<input type=submit value=\"Search\"></td></tr></form>";
 	print "</table>";
 	print "<hr>";
-	print "Œ»İƒx[ƒ^ƒeƒXƒg’†‚Å‚·BƒoƒO‚ğŒ©‚Â‚¯‚½‚çŒf¦”Â‚É‘‚¢‚Ä‚Ë";
-	print "<p align=center><a href=\"$bbsurl\">Œf¦”Â‚Ö</a></p>";
+	print "ç¾åœ¨ãƒ™ãƒ¼ã‚¿ãƒ†ã‚¹ãƒˆä¸­ã§ã™ã€‚ãƒã‚°ã‚’è¦‹ã¤ã‘ãŸã‚‰æ²ç¤ºæ¿ã«æ›¸ã„ã¦ã­";
+	print "<p align=center><a href=\"$bbsurl\">æ²ç¤ºæ¿ã¸</a></p>";
 	print "<h4 align=right>Getlog Ver0.3b3</h4>";
 	print "</body></html>";
 }
@@ -176,29 +176,29 @@ sub viewlog {
 	$first = "0$COMMAND{'first'}" if ($first < 10);
 	$last = "0$COMMAND{'last'}" if ($last < 10);
 	
-	if ($COMMAND{'searchmode'} eq 'name') { $keyword = "“ŠeÒF.*>${COMMAND{'keyword'}}<"; }
+	if ($COMMAND{'searchmode'} eq 'name') { $keyword = "æŠ•ç¨¿è€…ï¼š.*>${COMMAND{'keyword'}}<"; }
 	elsif ($COMMAND{'searchmode'} eq 'subject') { $keyword = "color=\"#ffffee\"><b>${COMMAND{'keyword'}}</b></font>"; }
 	else { $keyword = $COMMAND{'keyword'}; }
 
 
 	print "Content-type: text/html\n";
-	print "<html><head><title>$bbstitle ‰ß‹ƒƒO $COMMAND{'logfile'}</title></head>";
+	print "<html><head><title>$bbstitle éå»ãƒ­ã‚° $COMMAND{'logfile'}</title></head>";
 	print "$body";
-	print "<h1>$COMMAND{'logfile'} $first`$last</h1>";
+	print "<h1>$COMMAND{'logfile'} $firstæ™‚ï½$lastæ™‚</h1>";
 	$end = @lines;
 	$end--;
 	foreach (0 .. $end) {
-		if ($lines[$_] =~ /<font size=-1>@“Še“úF/) {
+		if ($lines[$_] =~ /<font size=-1>ã€€æŠ•ç¨¿æ—¥ï¼š/) {
 			$hour = substr( $lines[$_], 36, 4 );
-			last if ($hour ge "$first");
+			last if ($hour ge "$firstæ™‚");
 		}
 		$skip++;
 	}
 	$skip--;
 	foreach ($skip .. $end) {
-		if ($lines[$_] =~ /<font size=-1>@“Še“úF/) {
+		if ($lines[$_] =~ /<font size=-1>ã€€æŠ•ç¨¿æ—¥ï¼š/) {
 			$hour = substr( $lines[$_], 36, 4 );
-			last if ($hour ge "$last");
+			last if ($hour ge "$lastæ™‚");
 		}
 		
 
@@ -221,8 +221,8 @@ sub viewlog {
 		print "<hr>";
 		$keyword =~ s/\\\\/\\/;
 		$keyword =~ s/\\\[/\[/;
-		if ( $hit > 0 ) { print "<h3>ƒL[ƒ[ƒhu$COMMAND{'keyword'}v‚Í $hitŒŒ©‚Â‚©‚è‚Ü‚µ‚½B</h3>"; }
-		else { print "<h3>ƒL[ƒ[ƒhu$COMMAND{'keyword'}v‚ÍŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B</h3>"; }
+		if ( $hit > 0 ) { print "<h3>ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã€Œ$COMMAND{'keyword'}ã€ã¯ $hitä»¶è¦‹ã¤ã‹ã‚Šã¾ã—ãŸã€‚</h3>"; }
+		else { print "<h3>ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã€Œ$COMMAND{'keyword'}ã€ã¯è¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚</h3>"; }
 	}
 	print "</body></html>";
 
@@ -235,12 +235,12 @@ sub viewlog {
 sub error {
 
 	$error = $_[0];
-	if ($error == 0) { $errmsg = 'ƒfƒBƒŒƒNƒgƒŠ‚ªŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B'; }
-	if ($error == 1) { $errmsg = 'ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B'; }
-	if ($error == 2) { $errmsg = 'ƒL[ƒ[ƒh‚ª’·‚·‚¬‚Ü‚·B'; }
+	if ($error == 0) { $errmsg = 'ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒé–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚'; }
+	if ($error == 1) { $errmsg = 'ãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚'; }
+	if ($error == 2) { $errmsg = 'ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãŒé•·ã™ãã¾ã™ã€‚'; }
 
 	print "Content-type: text/html\n";
-	print "<html><head><title>ƒGƒ‰[</title></head>";
+	print "<html><head><title>ã‚¨ãƒ©ãƒ¼</title></head>";
 	print "$body";
 	print "<h1>$errmsg</h1>";
 	print "</body></html>";

@@ -1,14 +1,14 @@
-#! /usr/local/bin/perl
+#! /usr/bin/perl
 
 #
 
-#�낯�[�����
+#ろけーしょん
 
-#1997.9.14����
+#1997.9.14製作
 
-#������ՂƁ@�΂��@�䂢������Ɓ@
+#すくりぷと　ばい　ゆいちゃっと　
 
-#�@�@�@�@�@�@�@�@�@Since  1996
+#　　　　　　　　　Since  1996
 
 #
 
@@ -38,7 +38,7 @@ exit;
 
 
 
-sub decode{	#��ʓI�ȃf�R�[�h���ϐ��ւ̑��
+sub decode{	#一般的なデコード＆変数への代入
 
 $buffer = $ENV{'QUERY_STRING'};
 
@@ -72,7 +72,7 @@ print <<"_HTML_";
 
 <HTML><HEAD>
 
-<TITLE>�t�H�[���ňړ��B</TITLE>
+<TITLE>フォームで移動。</TITLE>
 
 </HEAD></HTML>
 
